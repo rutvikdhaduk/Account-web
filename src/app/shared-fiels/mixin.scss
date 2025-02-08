@@ -1,0 +1,34 @@
+/*========== Flex ==========*/
+@mixin Flex-box($content, $align) {
+  display: flex;
+  justify-content: $content;
+  align-items: $align;
+}
+
+/*========== Grid ==========*/
+@mixin Grid-box($columns) {
+  display: grid;
+  grid-template-columns: $columns;
+}
+
+/*========== Media Queary ==========*/
+@mixin media-query($screenSize, $properties) {
+  @media screen and (max-width:$screenSize) {
+    @each $propertie, $value in $properties {
+      #{$propertie}: #{$value};
+    }
+
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+/*========== Important Media Queary ==========*/
+@mixin important-media-query($screenSize, $properties) {
+  @media screen and (max-width:$screenSize) {
+    @each $propertie, $value in $properties {
+      #{$propertie}: #{$value} !important;
+    }
+
+    transition: all 0.3s ease-in-out;
+  }
+}

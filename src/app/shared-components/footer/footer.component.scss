@@ -1,0 +1,204 @@
+@import '../../shared-fiels/mixin.scss';
+@import '../../shared-fiels/variables.scss';
+@import '../../shared-fiels/classes.scss';
+
+footer {
+  background-color: $theme-color-1;
+  padding: 100px 0 0 0;
+  @extend .container;
+  background-image: url('/assets/home-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &>.content-group {
+    @include Flex-box(space-between, stretch);
+    @include media-query(1024px, (flex-direction: column));
+
+    &::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      background-color: $navbar;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backdrop-filter: blur(10px);
+    }
+
+    &>.logo-section {
+      z-index: 1;
+      @include media-query(1024px, (margin-bottom: 30px, padding-bottom: 30px, border-bottom: 1px solid $white));
+
+      &>img {
+        max-width: 150px;
+        width: 100%;
+        height: auto;
+      }
+
+      &>.social-media-icons {
+        margin: 20px 0 0 0;
+        height: max-content;
+
+        &>a {
+          color: $white;
+          text-decoration: none;
+          margin: 0 30px 0 0;
+          transition: all 0.2s ease-in-out;
+          font-size: 20px;
+
+          &:is(:hover, :focus) {
+            color: $theme-color-3;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    &>.divider {
+      width: 1px;
+      background-color: $white;
+      z-index: 1;
+    }
+
+    &>.links-section {
+      @include Flex-box(flex-start, flex-start);
+      column-gap: 100px;
+      z-index: 1;
+      @include media-query(1280px, (column-gap: 60px));
+      @include media-query(1024px, (justify-content: space-between));
+      @include media-query(768px, (display:grid, grid-template-columns: 1fr 1fr));
+
+      &>.link-group {
+        margin: 0;
+        max-width: 250px;
+
+        &.col-span-2 {
+          @include media-query(768px, (grid-column: span 2));
+        }
+
+        &>.heading {
+          color: $white;
+          font-size: 20px;
+          font-weight: 600;
+          position: relative;
+          padding-bottom: 10px;
+          margin-bottom: 20px;
+
+          &::before,
+          &::after {
+            content: '';
+            width: 35px;
+            height: 3px;
+            border-radius: 1px;
+            background-color: $theme-color-3;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+          }
+
+          &::after {
+            max-width: 100px;
+            width: 100%;
+            height: 1px;
+            bottom: 1px;
+          }
+        }
+
+        &>.link {
+          color: $white;
+          display: block;
+          text-decoration: none;
+          margin-bottom: 15px;
+          font-size: 16px;
+          @include Flex-box(flex-start, center);
+          transition: all 0.3s ease-in-out;
+
+          &:is(:hover, :focus) {
+            color: $theme-color-3;
+          }
+
+          &>i {
+            margin-right: 15px;
+            font-size: 9px;
+          }
+        }
+
+        &>.book-btn {
+          background-color: $white;
+          padding: 15px 30px;
+          border-radius: 50px;
+          margin-right: auto;
+          border: 2px solid $white;
+          color: $black;
+          font-size: 18px;
+          font-weight: 600;
+          transition: all 0.3s ease-in-out;
+
+          &:is(:hover, :focus) {
+            background-color: $theme-color-3;
+            border-color: $theme-color-3;
+            color: $black;
+          }
+        }
+      }
+    }
+  }
+
+  &>.info-section  {
+    padding: 0;
+    @include Flex-box(space-between, center);
+    color: $white;
+    height: 50px;
+    position: relative;
+    margin-top: 10px;
+    @include media-query(585px, (flex-direction: column, height: max-content, padding: 10px 0, align-items: flex-start));
+    @include media-query(350px, (align-items:center));
+
+    &>.info {
+      font-size: 13px;
+      margin-right: 20px;
+      @include media-query(585px, (margin:0));
+
+      &>i {
+        margin-right: 5px;
+        color: $theme-color-3;
+      }
+    }
+
+    &>.social-media-icons {
+      margin-left: auto;
+      height: max-content;
+      @include media-query(585px, (margin:auto 0, position: absolute, right: 30px, top:0, bottom:0));
+      @include media-query(350px, (position: relative, left:0, margin-top: 5px));
+
+      &>a {
+        color: $white;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: all 0.2s ease-in-out;
+
+        &:is(:hover, :focus) {
+          color: $theme-color-3;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &>.copyright-bar {
+    border-top: 1px solid $white;
+    padding: 20px 0;
+    @include Flex-box(center, center);
+    color: $white;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,608 @@
+@import '../../shared-fiels/mixin.scss';
+@import '../../shared-fiels/variables.scss';
+@import '../../shared-fiels/classes.scss';
+
+.header {
+  height: calc(80dvh - 50px);
+  width: auto;
+  background-image: url("https://assets-global.website-files.com/639ab26094443c36ccff5aa8/63edd41f3f5509301ce64fae_Banner.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  @extend .container;
+  @include Flex-box(space-between, center);
+  @include media-query(768px, (background-position: center));
+
+  &>.info-card {
+    background-color: $transparent-card;
+    backdrop-filter: blur(15px);
+    padding: 40px 65px;
+    border-radius: 30px;
+    max-width: 50%;
+    width: 100%;
+    margin-top: 110px;
+    @include media-query(1480px, (max-width:60%));
+    @include media-query(1080px, (max-width:70%));
+    @include media-query(768px, (max-width:100%, padding: 30px));
+
+    &>.badge {
+      background-color: $theme-color-3;
+      padding: 5px 12px 5px 15px;
+      display: inline-block;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 16px;
+      font-weight: 400;
+      color: $black;
+      margin-bottom: 15px;
+    }
+
+    &>.heading {
+      font-size: 45px;
+      font-weight: 600;
+      margin: 0 0 20px 0;
+      line-height: normal;
+      @include media-query(768px, (font-size:33px, line-height: normal, margin-bottom: 15px));
+    }
+
+  }
+}
+
+.about-section {
+  padding: 90px 0 10px 0;
+  @extend .container;
+  @include Grid-box(1fr 1fr);
+  @include media-query(768px, (grid-template-columns: repeat(1, 100%)));
+
+  &>.left-section {
+
+    &>.badge {
+      background-color: $theme-color-2;
+      padding: 5px 12px 5px 15px;
+      display: inline-block;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    &>.header-title {
+      font-size: 45px;
+      margin: 10px 0;
+      font-weight: 600;
+      @include media-query(768px, (font-size: 30px, line-height: normal));
+    }
+
+    &>.description {
+      letter-spacing: .02em;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: $gray;
+      @include Flex-box(flex-start, flex-start);
+
+      &>i {
+        color: $theme-color-2;
+        margin: 5px 10px 0 0;
+        font-size: 22px;
+      }
+    }
+  }
+
+  &>.right-section {
+    position: relative;
+    width: 100%;
+    height: max-content;
+    margin-left: 30px;
+    @include media-query(768px, (margin: 50px 0 0 0));
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -30px;
+      max-width: 330px;
+      max-height: 330px;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://cdn.prod.website-files.com/639ab26094443c36ccff5aa8/639b09e4777498076b12c9e5_About-Bg.png');
+      background-repeat: no-repeat;
+      @include media-query(768px, (top: -50px));
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 40px;
+      top: -20px;
+      background-color: $theme-color-2;
+      border-radius: 20px;
+      max-width: 100px;
+      max-height: 100px;
+      width: 100%;
+      height: 100%;
+    }
+
+    &>.img-section {
+      width: 90%;
+      position: relative;
+      left: 0;
+      z-index: 1;
+      @include media-query(768px, (width: 100%));
+
+      &>img {
+        width: 100%;
+        height: auto;
+        border-radius: 30px;
+      }
+    }
+  }
+}
+
+.about-work-group {
+  @include Flex-box(space-evenly, center);
+  flex-wrap: wrap;
+  padding: 50px 0;
+  @extend .container;
+
+  &>.about-work-card {
+    margin: 0 20px;
+    text-align: center;
+
+    &>.count {
+      margin: 0 0 25px 0;
+      font-size: 50px;
+      font-weight: 700;
+    }
+
+    &>.text {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      color: $gray;
+    }
+  }
+}
+
+.growing-section {
+  padding: 50px 0;
+  background-color: $service-card;
+  @extend .container;
+
+  &>.top-section {
+    @include Flex-box(space-between, center);
+    position: relative;
+    @include media-query(768px, (flex-direction: column, align-items: flex-start));
+
+    &>.info {
+      &>.badge {
+        border-radius: 20px;
+        padding: 5px 12px 5px 15px;
+        background-color: $theme-color-3;
+        color: $black;
+        letter-spacing: 0.2em;
+        font-size: 16px;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+
+      &>.heading {
+        text-transform: capitalize;
+        max-width: 750px;
+        margin: 10px 0;
+        font-size: 45px;
+        font-weight: 600;
+        line-height: 1.1;
+        color: $black;
+        @include media-query(768px, (font-size: 30px, margin: 15px 0));
+      }
+
+      &>.description {
+        letter-spacing: .02em;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: $gray;
+      }
+    }
+
+    &>.button {
+      padding: 18px 35px;
+      border-radius: 50px;
+      font-size: 18px;
+      color: $white;
+      background-color: $black;
+      font-weight: 600;
+      color: $white;
+      border: 2px solid $black;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      @include media-query(768px, (font-size: 16px, padding: 15px 20px));
+
+      &:is(:hover, :focus) {
+        background-color: transparent;
+        color: $black;
+      }
+    }
+  }
+
+  &>.cards-group {
+    @include Grid-box(repeat(4, 1fr));
+    grid-row-gap: 30px;
+    grid-column-gap: 30px;
+    padding: 30px 0;
+    @include media-query(1280px, (grid-template-columns: repeat(2,1fr)));
+    @include media-query(768px, (grid-template-columns: repeat(1, 100%)));
+
+    &>.cards {
+      background-color: $white;
+      padding: 25px 35px;
+      border-radius: 20px;
+
+      &>i {
+        background-color: $black;
+        color: $white;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        font-size: 25px;
+        margin-bottom: 10px;
+        @include Flex-box(center, center);
+      }
+
+      &>.heading {
+        color: $black;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      &>.description {
+        color: $gray;
+        font-size: 17px;
+      }
+
+      &>.read-more {
+        color: black;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 500;
+        @include Flex-box(flex-start, center);
+
+        &>i {
+          margin-left: 5px;
+          font-size: 16px;
+          transition: all 0.3s ease-in-out;
+        }
+
+        &:is(:hover, :focus) {
+          &>i {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.video-section {
+  background-color: $light-gray;
+  padding: 50px;
+  text-align: center;
+  @extend .container;
+
+  &>.badge {
+    border-radius: 20px;
+    padding: 2px 12px 2px 15px;
+    background-color: $theme-color-2;
+    color: $white;
+    width: max-content;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 auto;
+  }
+
+  &>.heading {
+    text-transform: capitalize;
+    max-width: 750px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+    font-size: 45px;
+    text-align: center;
+    margin: 10px auto;
+    @include media-query(768px, (font-size: 30px));
+  }
+
+  &>.description {
+    color: $gray;
+    font-size: 17px;
+    text-align: center;
+  }
+
+  &>.history-card {
+    @include Flex-box(center, center);
+    position: relative;
+    margin: 70px 0;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 200px;
+      height: 200px;
+      background-color: $theme-color-2;
+      border-radius: 20px;
+      position: absolute;
+      left: 10%;
+      bottom: -10%;
+      @include media-query(1080px, (left: -5px));
+      @include media-query(768px, (left: -10px, bottom: -10px));
+    }
+
+    &::after {
+      background-color: $navbar;
+      right: 10%;
+      left: auto;
+      bottom: auto;
+      top: -10%;
+      @include media-query(1080px, (right: -5px));
+      @include media-query(768px, (right: -10px, top: -10px));
+    }
+
+    &>.frame {
+      width: 70%;
+      height: 450px;
+      border-radius: 20px;
+      z-index: 1;
+      @include media-query(1080px, (width: 90%, height: 400px));
+      @include media-query(768px, (width: 100%, height: 300px));
+    }
+  }
+}
+
+.team-section {
+  padding: 50px 0;
+  background-color: $service-card;
+  @extend .container;
+
+  &>.top-section {
+    @include Flex-box(space-between, flex-end);
+    position: relative;
+    @include media-query(768px, (flex-direction: column, align-items: flex-start));
+
+    &>.info {
+      &>.heading {
+        text-transform: capitalize;
+        max-width: 750px;
+        margin: 10px 0;
+        font-size: 45px;
+        font-weight: 600;
+        line-height: 1.1;
+        color: $black;
+        @include media-query(768px, (font-size: 30px, margin: 15px 0));
+      }
+
+      &>.description {
+        font-size: 16px;
+        font-weight: 500;
+        color: $gray;
+        margin-top: 10px;
+      }
+    }
+
+    &>.button {
+      padding: 18px 35px;
+      border-radius: 50px;
+      font-size: 18px;
+      color: $white;
+      background-color: $black;
+      font-weight: 600;
+      color: $white;
+      border: 2px solid $black;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      text-wrap: nowrap;
+      @include media-query(768px, (font-size: 16px, padding: 15px 20px));
+
+      &:is(:hover, :focus) {
+        background-color: transparent;
+        border-color: $black;
+        color: $black;
+      }
+    }
+  }
+
+  &>.member-cards-grop {
+    @include Grid-box(1fr 1fr 1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 50px;
+    padding: 30px 0;
+    @include media-query(1080px, (grid-template-columns: repeat(2,1fr)));
+    @include media-query(768px, (grid-template-columns: repeat(1, 100%)));
+
+    &>.member-card {
+      @include media-query(768px, (margin-bottom: 20px));
+
+      &>.img {
+        background-color: $light-gray;
+        border-radius: 20px;
+        width: 100%;
+        position: relative;
+        @include media-query(768px, (width: 70%, margin: 0 auto));
+
+        &>img {
+          width: 100%;
+          height: auto;
+        }
+
+        &:is(:hover, :focus) {
+          &>.badge {
+            background-color: $theme-color-3;
+            color: $black;
+          }
+        }
+
+        &>.badge {
+          position: absolute;
+          background-color: $black;
+          color: $white;
+          border-radius: 50px;
+          padding: 10px 20px;
+          right: 20px;
+          bottom: 20px;
+          font-size: 14px;
+          transition: all 0.3s ease-in-out;
+          @include Flex-box(center, center);
+        }
+      }
+
+      &>.name {
+        font-size: 29px;
+        color: $black;
+        margin: 15px 0 10px 0;
+        transition: all 0.3s ease-in-out;
+        font-weight: 600;
+        text-align: center;
+        @include media-query(768px, (font-size: 25px));
+
+        &:is(:hover,:focus) {
+          color: $theme-color-2;
+        }
+      }
+
+      &>.description {
+        font-size: 17px;
+        color: $gray;
+        text-align: center;
+        @include media-query(768px, (font-size: 15px));
+      }
+
+      &>.media {
+        @include Flex-box(center,center);
+
+        &>i {
+          margin: 0 15px;
+          font-size: 25px;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+          @include media-query(768px, (font-size: 22px));
+
+          &:is(:hover,:focus) {
+            color: $theme-color-1;
+            margin-top: -10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.booking-section {
+  @extend .container;
+
+  .booking-card {
+    background-color: $theme-color-1;
+    margin: 100px 0 100px 0;
+    padding: 100px 100px;
+    border-radius: 20px;
+    @include Grid-box(1fr 1fr);
+    grid-column-gap: 30px;
+    color: $white;
+    @include media-query(768px, (padding: 50px 40px, grid-template-columns: repeat(1, 100%)));
+
+    &>.left-section {
+      text-align: left;
+
+      &>.badge {
+        border-radius: 20px;
+        padding: 2px 15px;
+        display: inline-block;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+        background-color: $theme-color-2;
+        color-scheme: $white;
+      }
+
+      &>.heading {
+        font-size: 45px;
+        margin: 10px 0 20px 0;
+        font-weight: 600;
+        line-height: 1.1;
+        @include media-query(768px, (font-size: 35px));
+      }
+
+      &>.description {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+
+      &>.call-btn {
+        height: 60px;
+        padding: 15px 20px;
+        @include Flex-box(center, center);
+        border-radius: 50px;
+        border: 2px solid $theme-color-3;
+        background-color: $theme-color-3;
+        font-size: 18px;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
+
+        &>i {
+          margin-right: 5px;
+        }
+
+        &:is(:hover, :focus) {
+          background-color: $white;
+          border-color: $white;
+        }
+      }
+    }
+
+    &>.right-section {
+      position: relative;
+      @include media-query(768px, (margin-top: 40px));
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://cdn.prod.website-files.com/639ab26094443c36ccff5aa8/639b09e4777498076b12c9e5_About-Bg.png');
+        background-repeat: no-repeat;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: 20px;
+        height: 150px;
+        width: 150px;
+        border-radius: 20px;
+        background-color: $theme-color-2;
+      }
+
+      &>.image {
+        position: relative;
+        left: 30px;
+        top: 40px;
+        border-radius: 30px 30px 0 0;
+        z-index: 1;
+        max-width: 80%;
+        width: 100%;
+      }
+    }
+  }
+}

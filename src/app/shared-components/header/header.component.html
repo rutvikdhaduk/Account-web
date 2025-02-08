@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <span class="logo"><img
+      src="assets/logo.png"
+      alt="logo"></span>
+  <ul class="link-group" [ngClass]="{'open': isOpenNavbar}">
+    <button class="link" routerLink="/home" routerLinkActive="active-link">Home</button>
+    <button class="link" routerLink="/about" routerLinkActive="active-link" >About</button>
+    <button class="link dropdown" routerLink="/services" routerLinkActive="active-link">Services <i class="fas fa-angle-down"></i>
+      <div class="dropdown-body">
+        <ul class="link-group">
+          <li>Financial Projections</li>
+          <li>Funds and investments</li>
+          <li>Taxes & Efficiency</li>
+          <li>Investment banking</li>
+        </ul>
+      </div>
+    </button>
+    <button class="link">Contact</button>
+  </ul>
+  <span class="mobile-number-badge"><i class="fas fa-phone-alt"></i> +91 9898134535</span>
+  <button class="toogle-btn" (click)="isOpenNavbar = !isOpenNavbar" [ngClass]="{'close': isOpenNavbar}">
+    <span class="toggle__bar"></span>
+  </button>
+</nav>

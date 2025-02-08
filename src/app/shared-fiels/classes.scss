@@ -1,0 +1,10 @@
+@import './mixin.scss';
+
+.container {
+  padding-left: 17% !important;
+  padding-right: 17% !important;
+  @include important-media-query(1480px, (padding-left:100px, padding-right: 100px));
+  @include important-media-query(1080px, (padding-left:50px, padding-right: 50px));
+  @include important-media-query(768px, (padding-left:30px, padding-right: 30px));
+  @include important-media-query(480px, (padding-left:20px, padding-right: 20px));
+}

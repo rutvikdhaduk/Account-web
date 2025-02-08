@@ -1,0 +1,482 @@
+@import '../../shared-fiels/mixin.scss';
+@import '../../shared-fiels/variables.scss';
+@import '../../shared-fiels/classes.scss';
+
+.header {
+  height: calc(80dvh - 50px);
+  width: auto;
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/035/814/653/small_2x/ai-generated-handsome-businessman-happy-and-smiling-young-man-in-smart-suit-posing-in-office-with-suit-ai-generated-free-photo.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  @extend .container;
+  @include Flex-box(space-between, center);
+  @include media-query(768px, (background-position: center));
+
+  &>.info-card {
+    background-color: $transparent-card;
+    backdrop-filter: blur(15px);
+    padding: 40px 65px;
+    border-radius: 30px;
+    max-width: 60%;
+    width: 100%;
+    margin-top: 110px;
+    @include media-query(1480px, (max-width:60%));
+    @include media-query(1080px, (max-width:70%));
+    @include media-query(768px, (max-width:100%, padding: 30px));
+
+    &>.badge {
+      background-color: $theme-color-3;
+      padding: 5px 12px 5px 15px;
+      display: inline-block;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 16px;
+      font-weight: 400;
+      color: $black;
+      margin-bottom: 15px;
+    }
+
+    &>.heading {
+      font-size: 45px;
+      font-weight: 600;
+      margin: 0 0 20px 0;
+      line-height: normal;
+      @include media-query(768px, (font-size:33px, line-height: normal, margin-bottom: 15px));
+    }
+  }
+}
+
+.services-section {
+  background-color: $light-gray;
+  padding: 50px;
+  @extend .container;
+
+  &>.service-badge {
+    border-radius: 20px;
+    padding: 2px 12px 2px 15px;
+    background-color: $theme-color-2;
+    color: $white;
+    width: max-content;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0 auto;
+  }
+
+  &>.heading {
+    text-transform: capitalize;
+    max-width: 750px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+    font-size: 45px;
+    text-align: center;
+    margin: 10px auto;
+    @include media-query(768px, (font-size: 30px));
+  }
+
+  &>.services-cards-group {
+    @include Grid-box(1fr 1fr 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    padding: 30px 0;
+    @include media-query(1024px, (grid-template-columns: 1fr 1fr));
+    @include media-query(768px, (grid-template-columns: 1fr));
+
+    &>.service-card {
+      background-color: $service-card;
+      border-radius: 20px;
+      padding: 45px 45px 35px 40px;
+      transition: background-color .2s ease-in-out;
+      @include media-query(768px, (padding: 30px, text-align: center));
+      @include media-query(350px, (padding: 20px));
+
+      &:is(:hover) {
+        background-color: $white;
+      }
+
+      &:nth-child(1),
+      &:nth-child(6) {
+        &>.icon {
+          &>i {
+            color: $theme-color-1;
+          }
+        }
+      }
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        &>.icon {
+          &>i {
+            color: $theme-color-2;
+          }
+        }
+      }
+
+      &:nth-child(3),
+      &:nth-child(5) {
+        &>.icon {
+          &>i {
+            color: $theme-color-3;
+          }
+        }
+      }
+
+      &>img {
+        width: 100%;
+        max-width: 100px;
+        min-width: 50px;
+        display: block;
+        margin-bottom: 20px;
+        @include media-query(768px, (margin: 0 auto 20px auto));
+      }
+
+      &>.icon {
+        display: block;
+        width: max-content;
+        position: relative;
+        padding: 0 20px 20px 20px;
+        margin-bottom: 10px;
+        @include media-query(768px, (margin: 0 auto 10px auto));
+
+        &>i {
+          font-size: 45px;
+          z-index: 2;
+          position: relative;
+        }
+
+        &::before,
+        &::after {
+          content: '';
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: $border-color;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+
+        &::after {
+          width: 20px;
+          height: 20px;
+          top: -5px;
+          bottom: auto;
+          left: auto;
+          right: 0;
+        }
+      }
+
+      &>a {
+        text-transform: capitalize;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 1.4;
+        text-decoration: none;
+        color: $black;
+        transition: all 0.2s ease-in-out;
+        @include media-query(768px, (font-size: 23px));
+
+        &:is(:hover, :focus) {
+          color: $theme-color-2;
+        }
+      }
+
+      &>.description {
+        letter-spacing: .02em;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: $gray;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.process-section {
+  padding: 60px 0;
+  gap: 50px;
+  align-items: center;
+  @extend .container;
+  @include Grid-box(repeat(2, 50%));
+  @include media-query(1280px, (grid-template-columns: 40% 60%, gap: 0));
+  @include media-query(768px, (grid-template-columns: repeat(1, 100%), gap: 70px));
+
+  &>.left-section {
+    position: relative;
+    width: auto;
+    height: max-content;
+    margin-right: 30px;
+    @include media-query(768px, (margin: 0 10px 0 0));
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -80px;
+      max-width: 330px;
+      max-height: 330px;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://cdn.prod.website-files.com/639ab26094443c36ccff5aa8/639b09e4777498076b12c9e5_About-Bg.png');
+      background-repeat: no-repeat;
+      @include media-query(768px, (bottom: -50px));
+    }
+
+    &>.img-section {
+      width: 88%;
+      margin-left: auto;
+      position: relative;
+      right: 0;
+      @include media-query(768px, (width: 100%));
+
+      &>img {
+        width: 100%;
+        height: auto;
+        border-radius: 30px;
+      }
+    }
+  }
+
+  &>.right-section {
+    &>.badge {
+      background-color: $theme-color-3;
+      padding: 2px 12px 2px 15px;
+      display: inline-block;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    &>.header-title {
+      font-size: 45px;
+      margin: 10px 0;
+      font-weight: 600;
+      line-height: 1;
+      @include media-query(768px, (font-size: 30px, line-height: normal));
+    }
+
+    &>.card-group {
+      padding: 20px 0;
+      margin-top: 20px !important;
+      width: auto;
+      background-color: $light-gray;
+      padding: 20px;
+      border-radius: 10px;
+      gap: 10px;
+      @include Flex-box(flex-start, flex-start);
+      flex-direction: column;
+      @include media-query(768px, (margin-top: 10px, padding: 10px 15px));
+
+      &>.info-card {
+        width: 100%;
+        gap: 20px;
+        @include Flex-box(center, flex-start);
+
+        &>i {
+          margin: 6px 0 0 0;
+          font-size: 22px;
+          color: $theme-color-1;
+          @include media-query(768px, (font-size: 20px));
+        }
+
+        &>.service-info {
+          @include Flex-box(flex-start, flex-start);
+          flex-direction: column;
+          gap: 10px;
+          @include media-query(768px, (gap: 5px));
+
+          &>.heading {
+            font-size: 21px;
+            color: $black;
+            line-height: normal;
+            margin: 0;
+            @include media-query(768px, (font-size: 17px));
+          }
+
+          &>.description {
+            font-size: 17px;
+            color: $gray;
+            margin: 0;
+            @include media-query(768px, (font-size: 14px));
+          }
+        }
+      }
+
+      &>.service-name {
+        margin: 0 0 5px 0;
+        font-family: Lato, sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.reach-up-section {
+  padding: 50px 0;
+  @extend .container;
+  @include Grid-box(40% 60%);
+  @include media-query(1024px, (display: block));
+
+  &>.left-section {
+    @include media-query(1024px, (margin-bottom:20px));
+
+    &>.badge {
+      border-radius: 20px;
+      padding: 2px 12px 2px 15px;
+      background-color: $theme-color-2;
+      color: $white;
+      letter-spacing: 0.2em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    &>.heading {
+      text-transform: capitalize;
+      max-width: 750px;
+      margin: 10px 0;
+      font-size: 45px;
+      font-weight: 600;
+      line-height: 1.1;
+      color: $black;
+      @include media-query(768px, (font-size: 30px, margin: 15px 0));
+    }
+
+    &>.description {
+      font-size: 16px;
+      font-weight: 500;
+      color: $gray;
+      margin-top: 10px;
+    }
+
+    &>.contact-group {
+
+      &>.contact-card {
+        padding: 20px 0;
+        @include Flex-box(flex-start, center);
+
+        &:nth-child(2) {
+          &>i {
+            background-color: $theme-color-2;
+          }
+        }
+
+        &:nth-child(3) {
+          &>i {
+            background-color: $theme-color-1;
+          }
+        }
+
+        &>i {
+          width: 50px;
+          height: 50px;
+          @include Flex-box(center, center);
+          background-color: $theme-color-3;
+          color: $white;
+          border-radius: 50%;
+          font-size: 23px;
+        }
+
+        &>.info {
+          margin-left: 15px;
+
+          &>p {
+            margin: 0;
+          }
+
+          &>.title {
+            font-size: 16px;
+            font-weight: 500;
+            color: $gray;
+          }
+
+          &>.item {
+            font-size: 20px;
+            color: $black;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  &>.right-section {
+    margin-left: 20px;
+    @include Grid-box(1fr 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    @include media-query(1024px, (margin-left:0));
+    @include media-query(748px, (display: block));
+
+    &>.input-group {
+      @include Flex-box(flex-start, flex-start);
+      flex-direction: column;
+      margin-bottom: 20px;
+
+      &>.label {
+        font-size: 16px;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      &>input,
+      &>textarea {
+        height: 60px;
+        border-radius: 30px;
+        border: 1px solid $border-color;
+        width: 100%;
+        padding: 20px 30px;
+        transition: all 0.1s ease-in-out;
+        outline: 0;
+        @include Flex-box(flex-start, flex-start);
+
+        &:is(:hover, :focus) {
+          border-color: $theme-color-2;
+        }
+      }
+
+      &>.large-input {
+        min-height: 120px;
+      }
+    }
+
+    &>.col-span-2 {
+      grid-column: span 2;
+    }
+
+    &>.send-btn {
+      background-color: $black;
+      padding: 15px 30px;
+      border-radius: 50px;
+      margin-right: auto;
+      border: 2px solid $black;
+      color: $white;
+      font-size: 18px;
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+
+      &:is(:hover, :focus) {
+        background-color: transparent;
+        border-color: $black;
+        color: $black;
+      }
+    }
+  }
+}
